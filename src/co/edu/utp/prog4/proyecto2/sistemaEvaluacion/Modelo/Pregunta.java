@@ -14,57 +14,21 @@ import java.util.List;
  * @author ANDRES
  */
 public class Pregunta {
-    private String descripcion;
-    private float valor;
-    private List<String> respuestas;
-    private List<String> solucion;
-    private boolean multipleSolucion;
-    private boolean abierta;
+    private String enunciado;
+    private int valor;
     
-    public Pregunta(String descripcion, List<String> respuestas, List<String> solucion, boolean abierta){
-        this.descripcion = descripcion;
-        this.respuestas = respuestas;
-        this.solucion = solucion;
-        this.abierta = abierta;
-        this.multipleSolucion = solucion.size()>1;
+    public Pregunta(String enunciado, int valor){
+        this.enunciado = enunciado;
+        this.valor = valor;
     }
     
-    public String getDescripcion(){
-        return descripcion;
-    }
-
-    public List<String> getRespuestas() {
-        return respuestas;
-    }
-
-    public List<String> getSolucion() {
-        return solucion;
-    }
     
     public float getValor(){
         return valor;
     }
-    
-    public void setValor(float valor){
-        this.valor = valor;
-    }
-    
-    public float validarRespuesta(List<String> solucion){
-        if(this.abierta){
-            return valor;
-        }
-        else if(this.multipleSolucion){
-            Collections.sort(this.solucion);
-            Collections.sort(solucion);
-        }
-        float puntaje = 0;
-        float valorPorRespuesta = this.valor/this.solucion.size();
-        for(String e: solucion){
-            if(this.solucion.contains(e)){
-                puntaje += valorPorRespuesta;
-            }
-        }
-        return puntaje;
+
+    public String getEnunciado() {
+        return enunciado;
     }
     
 }
