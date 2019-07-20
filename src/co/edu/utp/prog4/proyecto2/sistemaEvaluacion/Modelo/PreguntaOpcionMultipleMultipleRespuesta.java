@@ -5,6 +5,7 @@
  */
 package co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**

@@ -42,6 +42,7 @@ public class ControladorDeArchivos {
         }       
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "No fue posible abrir el archivo");
+            JOptionPane.showMessageDialog(null, e);
         }
         return examen;
     }
@@ -50,7 +51,8 @@ public class ControladorDeArchivos {
         try (ObjectOutputStream i = new ObjectOutputStream(new FileOutputStream(direccion + ".cad"))) {
             i.writeObject(examen);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No fue posible guardar el examen");
+            //JOptionPane.showMessageDialog(null, "No fue posible guardar el examen");
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     

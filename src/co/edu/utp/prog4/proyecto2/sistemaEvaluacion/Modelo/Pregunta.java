@@ -5,6 +5,7 @@
  */
 package co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  *
  * @author ANDRES
  */
-public class Pregunta {
+public class Pregunta implements Serializable{
     private String enunciado;
     private float valor;
     

@@ -166,7 +166,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         jPanel36 = new javax.swing.JPanel();
         jPanel37 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        ValorPreguntaOMMR = new javax.swing.JTextField();
         jButton14 = new javax.swing.JButton();
         jPanel38 = new javax.swing.JPanel();
         jPanel39 = new javax.swing.JPanel();
@@ -185,7 +185,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         jPanel45 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        EnunciadoPreguntaOMMR = new javax.swing.JTextArea();
+        TAEnunciadoPreguntaOMMR = new javax.swing.JTextArea();
 
         javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
         jPanel43.setLayout(jPanel43Layout);
@@ -445,7 +445,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
+            .addGap(0, 263, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,6 +503,11 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         jPanel22.add(jButton12);
 
         jButton15.setText("Terminar");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton15MouseReleased(evt);
+            }
+        });
         jPanel22.add(jButton15);
 
         CrearExamen.add(jPanel22, java.awt.BorderLayout.PAGE_START);
@@ -513,7 +518,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         PanelBlanco2.setLayout(PanelBlanco2Layout);
         PanelBlanco2Layout.setHorizontalGroup(
             PanelBlanco2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 464, Short.MAX_VALUE)
         );
         PanelBlanco2Layout.setVerticalGroup(
             PanelBlanco2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -666,8 +671,8 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         jLabel11.setText("Valor");
         jPanel37.add(jLabel11, java.awt.BorderLayout.LINE_START);
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(30, 20));
-        jPanel37.add(jTextField2, java.awt.BorderLayout.CENTER);
+        ValorPreguntaOMMR.setPreferredSize(new java.awt.Dimension(30, 20));
+        jPanel37.add(ValorPreguntaOMMR, java.awt.BorderLayout.CENTER);
 
         jPanel36.add(jPanel37, java.awt.BorderLayout.LINE_START);
 
@@ -726,9 +731,9 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
 
         jPanel44.add(jPanel45, java.awt.BorderLayout.PAGE_START);
 
-        EnunciadoPreguntaOMMR.setColumns(20);
-        EnunciadoPreguntaOMMR.setRows(5);
-        jScrollPane5.setViewportView(EnunciadoPreguntaOMMR);
+        TAEnunciadoPreguntaOMMR.setColumns(20);
+        TAEnunciadoPreguntaOMMR.setRows(5);
+        jScrollPane5.setViewportView(TAEnunciadoPreguntaOMMR);
 
         jPanel44.add(jScrollPane5, java.awt.BorderLayout.CENTER);
 
@@ -756,7 +761,6 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private void jButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseReleased
         try {
             CEstudiante = new ControladorEstudiante(ControladorDeArchivos.getInstance().leer(DireccionCargar.getText()));
-            JOptionPane.showMessageDialog(null, "El examen se cargó exitosamente");
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "No fue posible cargar el archivo");
         } catch (ClassNotFoundException ex) {
@@ -1010,8 +1014,36 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11MouseReleased
 
     private void jButton14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseReleased
-        // TODO add your handling code here:
+        List <String> opciones = new ArrayList();
+        opciones.add(MROpcionA.getText());
+        opciones.add(MROpcionB.getText());
+        opciones.add(MROpcionC.getText());
+        opciones.add(MROpcionD.getText());
+        
+        boolean[] respuestas = new boolean[4];
+        if(MROpcionA2.isSelected()){
+            respuestas[0] = true;
+        }
+        if(MROpcionB2.isSelected()){
+            respuestas[1] = true;
+        }
+        if(MROpcionC2.isSelected()){
+            respuestas[2] = true;
+        }
+        if(MROpcionD2.isSelected()){
+            respuestas[3] = true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una respuesta");
+        }
+        
+        PreguntaOpcionMultipleMultipleRespuesta pregunta = new PreguntaOpcionMultipleMultipleRespuesta(opciones, respuestas,TAEnunciadoPreguntaOMMR.getText(),Float.parseFloat(ValorPreguntaOMMR.getText()));
+        CProfesor.getExamen().agregarPregunta(pregunta);
     }//GEN-LAST:event_jButton14MouseReleased
+
+    private void jButton15MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseReleased
+        CArchivos.guardarCuestionario("examen1", CProfesor.getExamen());
+    }//GEN-LAST:event_jButton15MouseReleased
 
     private void mostrarPanelBlanco(){
         jPanel20.setVisible(true);
@@ -1074,7 +1106,6 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JPanel CrearExamen;
     private javax.swing.JTextField DireccionCargar;
     private javax.swing.JLabel EnunciadoPreguntaAbierta;
-    private javax.swing.JTextArea EnunciadoPreguntaOMMR;
     private javax.swing.JLabel EnunciadoPreguntaOpcionMultipleMR;
     private javax.swing.JLabel EnunciadoPreguntaOpcionMultipleUR;
     private javax.swing.JPanel InterfazEstudiante;
@@ -1113,6 +1144,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JRadioButton SeleccionaDOMMR;
     private javax.swing.JRadioButton SeleccionaDOMUR;
     private javax.swing.JTextArea TAEnunciadoPreguntaAbierta;
+    private javax.swing.JTextArea TAEnunciadoPreguntaOMMR;
     private javax.swing.JTextArea TAEnunciadoPreguntaOMUR;
     private javax.swing.JRadioButton UROpcionA;
     private javax.swing.JRadioButton UROpcionB;
@@ -1123,6 +1155,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JTextField URTextoOpcionC;
     private javax.swing.JTextField URTextoOpcionD;
     private javax.swing.JTextField ValorPreguntaAbierta;
+    private javax.swing.JTextField ValorPreguntaOMMR;
     private javax.swing.JTextField ValorPreguntaOMUR;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1198,7 +1231,6 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
     private void cargarPregunta() {
