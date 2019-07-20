@@ -186,6 +186,17 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         TAEnunciadoPreguntaOMMR = new javax.swing.JTextArea();
+        PanelDefinirParametros = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        DireccionGuardado = new javax.swing.JTextField();
+        jButton16 = new javax.swing.JButton();
+        jPanel46 = new javax.swing.JPanel();
+        jButton17 = new javax.swing.JButton();
+        jPanel47 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel48 = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
         jPanel43.setLayout(jPanel43Layout);
@@ -475,6 +486,11 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
         jPanel21.add(jButton9);
 
         jButton10.setText("Salir");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton10MouseReleased(evt);
+            }
+        });
         jPanel21.add(jButton10);
 
         InterfazProfesor.add(jPanel21, java.awt.BorderLayout.PAGE_END);
@@ -745,6 +761,57 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
 
         getContentPane().add(CrearExamen, "card6");
 
+        PanelDefinirParametros.setLayout(new java.awt.BorderLayout());
+
+        jLabel12.setText("Nombre del archivo");
+        jPanel28.add(jLabel12);
+
+        DireccionGuardado.setPreferredSize(new java.awt.Dimension(100, 25));
+        jPanel28.add(DireccionGuardado);
+
+        jButton16.setText("Crear");
+        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton16MouseReleased(evt);
+            }
+        });
+        jPanel28.add(jButton16);
+
+        PanelDefinirParametros.add(jPanel28, java.awt.BorderLayout.PAGE_START);
+
+        jPanel46.setLayout(new java.awt.BorderLayout());
+
+        jButton17.setText("Salir");
+        jPanel46.add(jButton17, java.awt.BorderLayout.LINE_END);
+
+        jPanel47.setLayout(new java.awt.BorderLayout());
+
+        jLabel13.setText("Valor");
+        jPanel47.add(jLabel13, java.awt.BorderLayout.LINE_START);
+
+        jTextField1.setMinimumSize(new java.awt.Dimension(6, 10));
+        jTextField1.setPreferredSize(new java.awt.Dimension(6, 10));
+        jPanel47.add(jTextField1, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
+        jPanel48.setLayout(jPanel48Layout);
+        jPanel48Layout.setHorizontalGroup(
+            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel48Layout.setVerticalGroup(
+            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 28, Short.MAX_VALUE)
+        );
+
+        jPanel47.add(jPanel48, java.awt.BorderLayout.LINE_END);
+
+        jPanel46.add(jPanel47, java.awt.BorderLayout.CENTER);
+
+        PanelDefinirParametros.add(jPanel46, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(PanelDefinirParametros, "card7");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -906,7 +973,8 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
 
     private void jButton6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseReleased
        InterfazProfesor.setVisible(false);
-       CrearExamen.setVisible(true);
+       PanelDefinirParametros.setVisible(true);
+       this.setSize(300,100);
     }//GEN-LAST:event_jButton6MouseReleased
 
     private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
@@ -1042,8 +1110,18 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14MouseReleased
 
     private void jButton15MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseReleased
-        CArchivos.guardarCuestionario("examen1", CProfesor.getExamen());
+        CArchivos.guardarCuestionario(DireccionGuardado.getText(), CProfesor.getExamen());
     }//GEN-LAST:event_jButton15MouseReleased
+
+    private void jButton16MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseReleased
+        PanelDefinirParametros.setVisible(false);
+        CrearExamen.setVisible(true);
+    }//GEN-LAST:event_jButton16MouseReleased
+
+    private void jButton10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseReleased
+        PanelDefinirParametros.setVisible(false);
+        InterfazProfesor.setVisible(true);
+    }//GEN-LAST:event_jButton10MouseReleased
 
     private void mostrarPanelBlanco(){
         jPanel20.setVisible(true);
@@ -1105,6 +1183,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JPanel CreaPreguntaOMUR;
     private javax.swing.JPanel CrearExamen;
     private javax.swing.JTextField DireccionCargar;
+    private javax.swing.JTextField DireccionGuardado;
     private javax.swing.JLabel EnunciadoPreguntaAbierta;
     private javax.swing.JLabel EnunciadoPreguntaOpcionMultipleMR;
     private javax.swing.JLabel EnunciadoPreguntaOpcionMultipleUR;
@@ -1128,6 +1207,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JLabel OpcionDOMMR;
     private javax.swing.JLabel OpcionDPreguntaOMUR;
     private javax.swing.JPanel PanelBlanco2;
+    private javax.swing.JPanel PanelDefinirParametros;
     private javax.swing.JPanel PanelIngreso;
     private javax.swing.JPanel PanelPregunta;
     private javax.swing.JPanel PanelPreguntaAbierta;
@@ -1164,6 +1244,8 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1175,6 +1257,8 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1203,6 +1287,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
@@ -1222,6 +1307,9 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel44;
     private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel47;
+    private javax.swing.JPanel jPanel48;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -1231,6 +1319,7 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
     private void cargarPregunta() {
