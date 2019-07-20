@@ -15,9 +15,9 @@ import java.util.List;
  */
 public class Pregunta {
     private String enunciado;
-    private int valor;
+    private float valor;
     
-    public Pregunta(String enunciado, int valor){
+    public Pregunta(String enunciado, float valor){
         this.enunciado = enunciado;
         this.valor = valor;
     }

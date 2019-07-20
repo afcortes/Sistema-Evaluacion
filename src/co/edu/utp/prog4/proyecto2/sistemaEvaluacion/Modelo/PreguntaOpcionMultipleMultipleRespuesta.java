@@ -16,11 +16,11 @@ public class PreguntaOpcionMultipleMultipleRespuesta extends Pregunta{
     private List <String> opciones;
     private boolean[] solucion;
     
-    public PreguntaOpcionMultipleMultipleRespuesta(String enunciado, int valor) {
+    public PreguntaOpcionMultipleMultipleRespuesta(String enunciado, float valor) {
         super(enunciado, valor);
     }
     
-    public PreguntaOpcionMultipleMultipleRespuesta(List<String> opciones, boolean[] solucion,String enunciado, int valor){
+    public PreguntaOpcionMultipleMultipleRespuesta(List<String> opciones, boolean[] solucion,String enunciado, float valor){
         this(enunciado, valor);
         this.opciones = opciones;
         this.solucion = solucion;

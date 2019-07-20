@@ -20,6 +20,7 @@ public class ControladorProfesor {
     private Examen examen; 
     
     public ControladorProfesor(){
+        examen = new Examen("Hola",5);
     }
     
     public ControladorProfesor(Examen examen){

@@ -7,9 +7,7 @@ package co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  *
@@ -17,11 +15,11 @@ import java.util.function.Consumer;
  */
 public class Examen implements Serializable{
     private String descripcion;
-    private int valor;
+    private float valor;
     private List<Pregunta> preguntas;
     
 
-    public Examen(String descripcion, int valor) {
+    public Examen(String descripcion, float valor) {
         this.descripcion = descripcion;
         this.preguntas = new ArrayList<>();
         this.valor = valor;
@@ -35,7 +33,7 @@ public class Examen implements Serializable{
         return this.preguntas.get(numero);
     }
     
-    public int getValor(){
+    public float getValor(){
         return valor;
     }
     

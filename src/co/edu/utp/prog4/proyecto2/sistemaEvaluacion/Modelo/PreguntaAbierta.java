@@ -11,7 +11,7 @@ package co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo;
  */
 public class PreguntaAbierta extends Pregunta{
     
-    public PreguntaAbierta(String enunciado, int valor) {
+    public PreguntaAbierta(String enunciado, float valor) {
         super(enunciado, valor);
     }
     
