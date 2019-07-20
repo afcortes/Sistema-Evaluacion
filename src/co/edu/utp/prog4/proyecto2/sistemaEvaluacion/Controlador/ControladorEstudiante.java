@@ -13,12 +13,26 @@ import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo.Examen;
  */
 public class ControladorEstudiante {
     private Examen examen;
+    private int pregunta;
     
     public ControladorEstudiante(Examen examen){
         this.examen = examen;
+        this.pregunta = 0;
     }
     
     public Examen getExamen(){
         return examen;
+    }
+    
+    public int getPregunta(){
+        return pregunta;
+    }
+    
+    public void avanzar(){
+        pregunta++;
+    }
+    
+    public void retroceder(){
+        pregunta--;
     }
 }

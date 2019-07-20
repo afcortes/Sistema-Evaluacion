@@ -20,7 +20,7 @@ public class PreguntaOpcionMultipleMultipleRespuesta extends Pregunta{
         super(enunciado, valor);
     }
     
-    public PreguntaOpcionMultipleMultipleRespuesta(String enunciado, int valor,List<String> opciones, boolean[] solucion){
+    public PreguntaOpcionMultipleMultipleRespuesta(List<String> opciones, boolean[] solucion,String enunciado, int valor){
         this(enunciado, valor);
         this.opciones = opciones;
         this.solucion = solucion;

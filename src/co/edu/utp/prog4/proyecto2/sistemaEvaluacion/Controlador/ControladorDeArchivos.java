@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 public class ControladorDeArchivos {
     private static ControladorDeArchivos instance;
 
-    private ControladorDeArchivos() {
+    public ControladorDeArchivos() {
     }
 
     public static ControladorDeArchivos getInstance() {

@@ -5,17 +5,38 @@
  */
 package co.edu.utp.prog4.proyecto2.sistemaEvaluacion.UI;
 
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Controlador.ControladorDeArchivos;
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Controlador.ControladorEstudiante;
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Controlador.ControladorProfesor;
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo.Examen;
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo.Pregunta;
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo.PreguntaAbierta;
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo.PreguntaOpcionMultipleMultipleRespuesta;
+import co.edu.utp.prog4.proyecto2.sistemaEvaluacion.Modelo.PreguntaOpcionMultipleUnicaRespuesta;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ANDRES
  */
 public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
 
+    private ControladorDeArchivos CArchivos;
+    private ControladorEstudiante CEstudiante;
+    private ControladorProfesor CProfesor;
+    private Examen examen;
+    
     /**
      * Creates new form InterfazSistemaEvaluacion
      */
     public InterfazSistemaEvaluacion() {
         initComponents();
+        CArchivos = new ControladorDeArchivos();
+        CProfesor = new ControladorProfesor();
+        CEstudiante = null;
     }
 
     /**
@@ -27,22 +48,937 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel43 = new javax.swing.JPanel();
+        PanelIngreso = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        InterfazEstudiante = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        DireccionCargar = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        ResolverPrueba = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        NumeroDePregunta = new javax.swing.JLabel();
+        PanelPregunta = new javax.swing.JPanel();
+        PanelPreguntaAbierta = new javax.swing.JPanel();
+        EnunciadoPreguntaAbierta = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        RespuestaPreguntaAbierta = new javax.swing.JTextArea();
+        PanelPreguntaOpcionMultipleUR = new javax.swing.JPanel();
+        EnunciadoPreguntaOpcionMultipleUR = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        CampoAPreguntaOMUR = new javax.swing.JPanel();
+        SeleccionaAOMUR = new javax.swing.JRadioButton();
+        jPanel12 = new javax.swing.JPanel();
+        OpcionAPreguntaOMUR = new javax.swing.JLabel();
+        CampoBPreguntaOMUR = new javax.swing.JPanel();
+        SeleccionaBOMUR = new javax.swing.JRadioButton();
+        jPanel13 = new javax.swing.JPanel();
+        OpcionBPreguntaOMUR = new javax.swing.JLabel();
+        CampoCPreguntaOMUR = new javax.swing.JPanel();
+        SeleccionaCOMUR = new javax.swing.JRadioButton();
+        jPanel14 = new javax.swing.JPanel();
+        OpcionCPreguntaOMUR = new javax.swing.JLabel();
+        CampoDPreguntaOMUR = new javax.swing.JPanel();
+        SeleccionaDOMUR = new javax.swing.JRadioButton();
+        jPanel15 = new javax.swing.JPanel();
+        OpcionDPreguntaOMUR = new javax.swing.JLabel();
+        PanelPreguntaOpcionMultipleMR = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        SeleccionaAOMMR = new javax.swing.JRadioButton();
+        OpcionAOMMR = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        SeleccionaBOMMR = new javax.swing.JRadioButton();
+        OpcionBOMMR = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        SeleccionaCOMMR = new javax.swing.JRadioButton();
+        OpcionCOMMR = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        SeleccionaDOMMR = new javax.swing.JRadioButton();
+        OpcionDOMMR = new javax.swing.JLabel();
+        EnunciadoPreguntaOpcionMultipleMR = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        InterfazProfesor = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        CrearExamen = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        BarraTipoPregunta = new javax.swing.JComboBox<>();
+        jButton12 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
+        PanelBlanco2 = new javax.swing.JPanel();
+        CreaPreguntaAbierta = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel24 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+        jPanel35 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        ValorPreguntaAbierta = new javax.swing.JTextField();
+        CreaPreguntaOMUR = new javax.swing.JPanel();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TAEnunciadoPreguntaOMUR = new javax.swing.JTextArea();
+        jPanel27 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        jButton13 = new javax.swing.JButton();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel30 = new javax.swing.JPanel();
+        jPanel31 = new javax.swing.JPanel();
+        UROpcionA = new javax.swing.JRadioButton();
+        URTextoOpcionA = new javax.swing.JTextField();
+        jPanel32 = new javax.swing.JPanel();
+        UROpcionB = new javax.swing.JRadioButton();
+        URTextoOpcionB = new javax.swing.JTextField();
+        jPanel33 = new javax.swing.JPanel();
+        UROpcionC = new javax.swing.JRadioButton();
+        URTextoOpcionC = new javax.swing.JTextField();
+        jPanel34 = new javax.swing.JPanel();
+        UROpcionD = new javax.swing.JRadioButton();
+        URTextoOpcionD = new javax.swing.JTextField();
+        CreaPreguntaOMMR = new javax.swing.JPanel();
+        jPanel36 = new javax.swing.JPanel();
+        jPanel37 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton14 = new javax.swing.JButton();
+        jPanel38 = new javax.swing.JPanel();
+        jPanel39 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        MROpcionA = new javax.swing.JTextField();
+        jPanel40 = new javax.swing.JPanel();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        MROpcionB = new javax.swing.JTextField();
+        jPanel41 = new javax.swing.JPanel();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        MROpcionC = new javax.swing.JTextField();
+        jPanel42 = new javax.swing.JPanel();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        MROpcionD = new javax.swing.JTextField();
+        jPanel44 = new javax.swing.JPanel();
+        jPanel45 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        EnunciadoPreguntaOMMR = new javax.swing.JTextArea();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
+        jPanel43.setLayout(jPanel43Layout);
+        jPanel43Layout.setHorizontalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 216, Short.MAX_VALUE)
+        );
+        jPanel43Layout.setVerticalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 85, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        PanelIngreso.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Seleccione como que quiere ingresar");
+        PanelIngreso.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jButton1.setText("Estudiante");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton1MouseReleased(evt);
+            }
+        });
+        jPanel2.add(jButton1);
+
+        jButton2.setText("Profesor");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton2MouseReleased(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_END);
+
+        PanelIngreso.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(PanelIngreso, "card2");
+
+        InterfazEstudiante.setLayout(new java.awt.BorderLayout());
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Escriba el nombre de la prueba a realizar");
+        InterfazEstudiante.add(jLabel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jButton3.setText("Salir");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton3MouseReleased(evt);
+            }
+        });
+        jPanel3.add(jButton3, java.awt.BorderLayout.LINE_END);
+
+        jButton5.setText("Comenzar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton5MouseReleased(evt);
+            }
+        });
+        jPanel3.add(jButton5, java.awt.BorderLayout.LINE_START);
+
+        InterfazEstudiante.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        DireccionCargar.setPreferredSize(new java.awt.Dimension(100, 25));
+        jPanel5.add(DireccionCargar);
+
+        jButton4.setText("Cargar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton4MouseReleased(evt);
+            }
+        });
+        jPanel5.add(jButton4);
+
+        jPanel4.add(jPanel5, java.awt.BorderLayout.PAGE_START);
+
+        InterfazEstudiante.add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(InterfazEstudiante, "card3");
+
+        ResolverPrueba.setLayout(new java.awt.BorderLayout());
+
+        jLabel3.setText("Pregunta numero :");
+        jPanel6.add(jLabel3);
+        jPanel6.add(NumeroDePregunta);
+
+        ResolverPrueba.add(jPanel6, java.awt.BorderLayout.PAGE_START);
+
+        PanelPregunta.setLayout(new java.awt.CardLayout());
+
+        PanelPreguntaAbierta.setLayout(new java.awt.BorderLayout());
+        PanelPreguntaAbierta.add(EnunciadoPreguntaAbierta, java.awt.BorderLayout.PAGE_START);
+
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        RespuestaPreguntaAbierta.setColumns(20);
+        RespuestaPreguntaAbierta.setRows(5);
+        jScrollPane1.setViewportView(RespuestaPreguntaAbierta);
+
+        jPanel7.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        PanelPreguntaAbierta.add(jPanel7, java.awt.BorderLayout.CENTER);
+
+        PanelPregunta.add(PanelPreguntaAbierta, "card2");
+
+        PanelPreguntaOpcionMultipleUR.setLayout(new java.awt.BorderLayout());
+        PanelPreguntaOpcionMultipleUR.add(EnunciadoPreguntaOpcionMultipleUR, java.awt.BorderLayout.PAGE_START);
+
+        jPanel11.setLayout(new java.awt.GridLayout(4, 1));
+
+        CampoAPreguntaOMUR.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaAOMUR.setText("A.");
+        SeleccionaAOMUR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                SeleccionaAOMURMouseReleased(evt);
+            }
+        });
+        CampoAPreguntaOMUR.add(SeleccionaAOMUR, java.awt.BorderLayout.LINE_START);
+
+        jPanel12.setLayout(new java.awt.BorderLayout());
+        jPanel12.add(OpcionAPreguntaOMUR, java.awt.BorderLayout.CENTER);
+
+        CampoAPreguntaOMUR.add(jPanel12, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(CampoAPreguntaOMUR);
+
+        CampoBPreguntaOMUR.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaBOMUR.setText("B.");
+        SeleccionaBOMUR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                SeleccionaBOMURMouseReleased(evt);
+            }
+        });
+        CampoBPreguntaOMUR.add(SeleccionaBOMUR, java.awt.BorderLayout.LINE_START);
+
+        jPanel13.setLayout(new java.awt.BorderLayout());
+        jPanel13.add(OpcionBPreguntaOMUR, java.awt.BorderLayout.CENTER);
+
+        CampoBPreguntaOMUR.add(jPanel13, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(CampoBPreguntaOMUR);
+
+        CampoCPreguntaOMUR.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaCOMUR.setText("C.");
+        SeleccionaCOMUR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                SeleccionaCOMURMouseReleased(evt);
+            }
+        });
+        CampoCPreguntaOMUR.add(SeleccionaCOMUR, java.awt.BorderLayout.LINE_START);
+
+        jPanel14.setLayout(new java.awt.BorderLayout());
+        jPanel14.add(OpcionCPreguntaOMUR, java.awt.BorderLayout.CENTER);
+
+        CampoCPreguntaOMUR.add(jPanel14, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(CampoCPreguntaOMUR);
+
+        CampoDPreguntaOMUR.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaDOMUR.setText("D.");
+        SeleccionaDOMUR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                SeleccionaDOMURMouseReleased(evt);
+            }
+        });
+        CampoDPreguntaOMUR.add(SeleccionaDOMUR, java.awt.BorderLayout.LINE_START);
+
+        jPanel15.setLayout(new java.awt.BorderLayout());
+        jPanel15.add(OpcionDPreguntaOMUR, java.awt.BorderLayout.CENTER);
+
+        CampoDPreguntaOMUR.add(jPanel15, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(CampoDPreguntaOMUR);
+
+        PanelPreguntaOpcionMultipleUR.add(jPanel11, java.awt.BorderLayout.CENTER);
+
+        PanelPregunta.add(PanelPreguntaOpcionMultipleUR, "card3");
+
+        PanelPreguntaOpcionMultipleMR.setLayout(new java.awt.BorderLayout());
+
+        jPanel20.setLayout(new java.awt.GridLayout(4, 1));
+
+        jPanel16.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaAOMMR.setText("A.");
+        jPanel16.add(SeleccionaAOMMR, java.awt.BorderLayout.LINE_START);
+        jPanel16.add(OpcionAOMMR, java.awt.BorderLayout.CENTER);
+
+        jPanel20.add(jPanel16);
+
+        jPanel17.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaBOMMR.setText("B.");
+        jPanel17.add(SeleccionaBOMMR, java.awt.BorderLayout.LINE_START);
+        jPanel17.add(OpcionBOMMR, java.awt.BorderLayout.CENTER);
+
+        jPanel20.add(jPanel17);
+
+        jPanel18.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaCOMMR.setText("C.");
+        jPanel18.add(SeleccionaCOMMR, java.awt.BorderLayout.LINE_START);
+        jPanel18.add(OpcionCOMMR, java.awt.BorderLayout.CENTER);
+
+        jPanel20.add(jPanel18);
+
+        jPanel19.setLayout(new java.awt.BorderLayout());
+
+        SeleccionaDOMMR.setText("D.");
+        SeleccionaDOMMR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionaDOMMRActionPerformed(evt);
+            }
+        });
+        jPanel19.add(SeleccionaDOMMR, java.awt.BorderLayout.LINE_START);
+        jPanel19.add(OpcionDOMMR, java.awt.BorderLayout.CENTER);
+
+        jPanel20.add(jPanel19);
+
+        PanelPreguntaOpcionMultipleMR.add(jPanel20, java.awt.BorderLayout.CENTER);
+        PanelPreguntaOpcionMultipleMR.add(EnunciadoPreguntaOpcionMultipleMR, java.awt.BorderLayout.PAGE_START);
+
+        PanelPregunta.add(PanelPreguntaOpcionMultipleMR, "card4");
+
+        ResolverPrueba.add(PanelPregunta, java.awt.BorderLayout.CENTER);
+
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jButton7.setText("Siguiente");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton7MouseReleased(evt);
+            }
+        });
+        jPanel9.add(jButton7);
+
+        jButton8.setText("TerminarPrueba");
+        jPanel9.add(jButton8);
+
+        jPanel8.add(jPanel9, java.awt.BorderLayout.LINE_END);
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 199, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel8.add(jPanel10, java.awt.BorderLayout.CENTER);
+
+        ResolverPrueba.add(jPanel8, java.awt.BorderLayout.PAGE_END);
+
+        getContentPane().add(ResolverPrueba, "card4");
+
+        InterfazProfesor.setLayout(new java.awt.BorderLayout());
+
+        jLabel4.setText("Seleccione lo que desea hacer");
+        InterfazProfesor.add(jLabel4, java.awt.BorderLayout.PAGE_START);
+
+        jButton6.setText("Crear Examen");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton6MouseReleased(evt);
+            }
+        });
+        jPanel21.add(jButton6);
+
+        jButton9.setText("Calificar Examen");
+        jPanel21.add(jButton9);
+
+        jButton10.setText("Salir");
+        jPanel21.add(jButton10);
+
+        InterfazProfesor.add(jPanel21, java.awt.BorderLayout.PAGE_END);
+
+        getContentPane().add(InterfazProfesor, "card5");
+
+        CrearExamen.setLayout(new java.awt.BorderLayout());
+
+        jLabel6.setText("Tipo de pregunta");
+        jPanel22.add(jLabel6);
+
+        BarraTipoPregunta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "abierta", "Opcion multiple unica respuesta", "Opcion multiple multiple respuesta" }));
+        BarraTipoPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BarraTipoPreguntaActionPerformed(evt);
+            }
+        });
+        jPanel22.add(BarraTipoPregunta);
+
+        jButton12.setText("Generar");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton12MouseReleased(evt);
+            }
+        });
+        jPanel22.add(jButton12);
+
+        jButton15.setText("Terminar");
+        jPanel22.add(jButton15);
+
+        CrearExamen.add(jPanel22, java.awt.BorderLayout.PAGE_START);
+
+        jPanel23.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout PanelBlanco2Layout = new javax.swing.GroupLayout(PanelBlanco2);
+        PanelBlanco2.setLayout(PanelBlanco2Layout);
+        PanelBlanco2Layout.setHorizontalGroup(
+            PanelBlanco2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        PanelBlanco2Layout.setVerticalGroup(
+            PanelBlanco2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
         );
+
+        jPanel23.add(PanelBlanco2, "card5");
+
+        CreaPreguntaAbierta.setLayout(new java.awt.BorderLayout());
+
+        jLabel7.setText("Ingrese el enunciado");
+        CreaPreguntaAbierta.add(jLabel7, java.awt.BorderLayout.PAGE_START);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        CreaPreguntaAbierta.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+
+        jPanel24.setLayout(new java.awt.BorderLayout());
+
+        jButton11.setText("Agregar");
+        jPanel24.add(jButton11, java.awt.BorderLayout.LINE_END);
+
+        jPanel35.setLayout(new java.awt.BorderLayout());
+
+        jLabel10.setText("Valor");
+        jPanel35.add(jLabel10, java.awt.BorderLayout.CENTER);
+
+        ValorPreguntaAbierta.setPreferredSize(new java.awt.Dimension(30, 20));
+        jPanel35.add(ValorPreguntaAbierta, java.awt.BorderLayout.LINE_END);
+
+        jPanel24.add(jPanel35, java.awt.BorderLayout.LINE_START);
+
+        CreaPreguntaAbierta.add(jPanel24, java.awt.BorderLayout.PAGE_END);
+
+        jPanel23.add(CreaPreguntaAbierta, "card2");
+
+        CreaPreguntaOMUR.setLayout(new java.awt.BorderLayout());
+
+        jPanel25.setLayout(new java.awt.BorderLayout());
+
+        jLabel8.setText("Ingrese el enunciado");
+        jPanel25.add(jLabel8, java.awt.BorderLayout.PAGE_START);
+
+        TAEnunciadoPreguntaOMUR.setColumns(20);
+        TAEnunciadoPreguntaOMUR.setRows(5);
+        jScrollPane3.setViewportView(TAEnunciadoPreguntaOMUR);
+
+        jPanel25.add(jScrollPane3, java.awt.BorderLayout.CENTER);
+
+        CreaPreguntaOMUR.add(jPanel25, java.awt.BorderLayout.PAGE_START);
+
+        jPanel27.setLayout(new java.awt.BorderLayout());
+
+        jPanel29.setLayout(new java.awt.BorderLayout());
+
+        jButton13.setText("Agregar");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton13MouseReleased(evt);
+            }
+        });
+        jPanel29.add(jButton13, java.awt.BorderLayout.LINE_END);
+
+        jPanel26.setLayout(new java.awt.BorderLayout());
+
+        jLabel9.setText("Valor");
+        jPanel26.add(jLabel9, java.awt.BorderLayout.LINE_START);
+
+        jTextField1.setMinimumSize(new java.awt.Dimension(30, 20));
+        jTextField1.setPreferredSize(new java.awt.Dimension(30, 20));
+        jPanel26.add(jTextField1, java.awt.BorderLayout.CENTER);
+
+        jPanel29.add(jPanel26, java.awt.BorderLayout.LINE_START);
+
+        jPanel27.add(jPanel29, java.awt.BorderLayout.PAGE_END);
+
+        jPanel30.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel31.setLayout(new java.awt.BorderLayout());
+
+        UROpcionA.setText("A.");
+        UROpcionA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                UROpcionAMouseReleased(evt);
+            }
+        });
+        jPanel31.add(UROpcionA, java.awt.BorderLayout.LINE_START);
+        jPanel31.add(URTextoOpcionA, java.awt.BorderLayout.CENTER);
+
+        jPanel30.add(jPanel31);
+
+        jPanel32.setLayout(new java.awt.BorderLayout());
+
+        UROpcionB.setText("B.");
+        UROpcionB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                UROpcionBMouseReleased(evt);
+            }
+        });
+        jPanel32.add(UROpcionB, java.awt.BorderLayout.LINE_START);
+        jPanel32.add(URTextoOpcionB, java.awt.BorderLayout.CENTER);
+
+        jPanel30.add(jPanel32);
+
+        jPanel33.setLayout(new java.awt.BorderLayout());
+
+        UROpcionC.setText("C.");
+        UROpcionC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                UROpcionCMouseReleased(evt);
+            }
+        });
+        jPanel33.add(UROpcionC, java.awt.BorderLayout.LINE_START);
+        jPanel33.add(URTextoOpcionC, java.awt.BorderLayout.CENTER);
+
+        jPanel30.add(jPanel33);
+
+        jPanel34.setLayout(new java.awt.BorderLayout());
+
+        UROpcionD.setText("D.");
+        UROpcionD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                UROpcionDMouseReleased(evt);
+            }
+        });
+        jPanel34.add(UROpcionD, java.awt.BorderLayout.LINE_START);
+        jPanel34.add(URTextoOpcionD, java.awt.BorderLayout.CENTER);
+
+        jPanel30.add(jPanel34);
+
+        jPanel27.add(jPanel30, java.awt.BorderLayout.CENTER);
+
+        CreaPreguntaOMUR.add(jPanel27, java.awt.BorderLayout.CENTER);
+
+        jPanel23.add(CreaPreguntaOMUR, "card3");
+
+        CreaPreguntaOMMR.setLayout(new java.awt.BorderLayout());
+
+        jPanel36.setLayout(new java.awt.BorderLayout());
+
+        jPanel37.setLayout(new java.awt.BorderLayout());
+
+        jLabel11.setText("Valor");
+        jPanel37.add(jLabel11, java.awt.BorderLayout.LINE_START);
+
+        jTextField2.setPreferredSize(new java.awt.Dimension(30, 20));
+        jPanel37.add(jTextField2, java.awt.BorderLayout.CENTER);
+
+        jPanel36.add(jPanel37, java.awt.BorderLayout.LINE_START);
+
+        jButton14.setText("Agregar");
+        jPanel36.add(jButton14, java.awt.BorderLayout.LINE_END);
+
+        CreaPreguntaOMMR.add(jPanel36, java.awt.BorderLayout.PAGE_END);
+
+        jPanel38.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel39.setLayout(new java.awt.BorderLayout());
+
+        jRadioButton1.setText("A.");
+        jPanel39.add(jRadioButton1, java.awt.BorderLayout.LINE_START);
+        jPanel39.add(MROpcionA, java.awt.BorderLayout.CENTER);
+
+        jPanel38.add(jPanel39);
+
+        jPanel40.setLayout(new java.awt.BorderLayout());
+
+        jRadioButton2.setText("B.");
+        jPanel40.add(jRadioButton2, java.awt.BorderLayout.LINE_START);
+        jPanel40.add(MROpcionB, java.awt.BorderLayout.CENTER);
+
+        jPanel38.add(jPanel40);
+
+        jPanel41.setLayout(new java.awt.BorderLayout());
+
+        jRadioButton3.setText("C.");
+        jPanel41.add(jRadioButton3, java.awt.BorderLayout.LINE_START);
+        jPanel41.add(MROpcionC, java.awt.BorderLayout.CENTER);
+
+        jPanel38.add(jPanel41);
+
+        jPanel42.setLayout(new java.awt.BorderLayout());
+
+        jRadioButton4.setText("D.");
+        jPanel42.add(jRadioButton4, java.awt.BorderLayout.LINE_START);
+        jPanel42.add(MROpcionD, java.awt.BorderLayout.CENTER);
+
+        jPanel38.add(jPanel42);
+
+        CreaPreguntaOMMR.add(jPanel38, java.awt.BorderLayout.CENTER);
+
+        jPanel44.setLayout(new java.awt.BorderLayout());
+
+        jPanel45.setLayout(new java.awt.BorderLayout());
+
+        jLabel5.setText("Enunciado");
+        jPanel45.add(jLabel5, java.awt.BorderLayout.LINE_START);
+
+        jPanel44.add(jPanel45, java.awt.BorderLayout.PAGE_START);
+
+        EnunciadoPreguntaOMMR.setColumns(20);
+        EnunciadoPreguntaOMMR.setRows(5);
+        jScrollPane5.setViewportView(EnunciadoPreguntaOMMR);
+
+        jPanel44.add(jScrollPane5, java.awt.BorderLayout.CENTER);
+
+        CreaPreguntaOMMR.add(jPanel44, java.awt.BorderLayout.PAGE_START);
+
+        jPanel23.add(CreaPreguntaOMMR, "card4");
+
+        CrearExamen.add(jPanel23, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(CrearExamen, "card6");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseReleased
+        PanelIngreso.setVisible(false);
+        InterfazEstudiante.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseReleased
+
+    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
+        InterfazEstudiante.setVisible(false);
+        PanelIngreso.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseReleased
+
+    private void jButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseReleased
+        try {
+            CEstudiante = new ControladorEstudiante(ControladorDeArchivos.getInstance().leer(DireccionCargar.getText()));
+            JOptionPane.showMessageDialog(null, "El examen se cargó exitosamente");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "No fue posible cargar el archivo");
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "El archivo que intenta cargar no es el de un examen");
+        }
+    }//GEN-LAST:event_jButton4MouseReleased
+
+    private void jButton5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseReleased
+        if(CEstudiante==null){
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre de una prueba antes de continuar");
+        }
+        else{
+            Pregunta pregunta = CEstudiante.getExamen().getPregunta(CEstudiante.getPregunta());
+            examen = new Examen("",CEstudiante.getExamen().getValor());
+            InterfazEstudiante.setVisible(false);
+            ResolverPrueba.setVisible(true);
+            mostrarPanelBlanco();
+            jPanel20.setVisible(false);
+            if(pregunta instanceof PreguntaAbierta){
+                PanelPreguntaAbierta.setVisible(true);
+            }
+            else if(pregunta instanceof PreguntaOpcionMultipleUnicaRespuesta){
+                PanelPreguntaOpcionMultipleUR.setVisible(true);
+            }
+            else if(pregunta instanceof PreguntaOpcionMultipleMultipleRespuesta){
+                PanelPreguntaOpcionMultipleMR.setVisible(true);
+            }
+            cargarPregunta();
+        }
+    }//GEN-LAST:event_jButton5MouseReleased
+
+    private void SeleccionaAOMURMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionaAOMURMouseReleased
+        if(!SeleccionaAOMUR.isSelected()){
+            SeleccionaAOMUR.setSelected(true);
+        }
+        else{
+            SeleccionaBOMUR.setSelected(false);
+            SeleccionaCOMUR.setSelected(false);
+            SeleccionaDOMUR.setSelected(false);
+        }
+    }//GEN-LAST:event_SeleccionaAOMURMouseReleased
+
+    private void SeleccionaBOMURMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionaBOMURMouseReleased
+        if(!SeleccionaBOMUR.isSelected()){
+            SeleccionaBOMUR.setSelected(true);
+        }
+        else{
+            SeleccionaAOMUR.setSelected(false);
+            SeleccionaCOMUR.setSelected(false);
+            SeleccionaDOMUR.setSelected(false);
+        }
+    }//GEN-LAST:event_SeleccionaBOMURMouseReleased
+
+    private void SeleccionaCOMURMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionaCOMURMouseReleased
+        if(!SeleccionaCOMUR.isSelected()){
+            SeleccionaCOMUR.setSelected(true);
+        }
+        else{
+            SeleccionaBOMUR.setSelected(false);
+            SeleccionaAOMUR.setSelected(false);
+            SeleccionaDOMUR.setSelected(false);
+        }
+    }//GEN-LAST:event_SeleccionaCOMURMouseReleased
+
+    private void SeleccionaDOMURMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionaDOMURMouseReleased
+        if(!SeleccionaDOMUR.isSelected()){
+            SeleccionaDOMUR.setSelected(true);
+        }
+        else{
+            SeleccionaBOMUR.setSelected(false);
+            SeleccionaCOMUR.setSelected(false);
+            SeleccionaAOMUR.setSelected(false);
+        }
+    }//GEN-LAST:event_SeleccionaDOMURMouseReleased
+
+    private void SeleccionaDOMMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionaDOMMRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SeleccionaDOMMRActionPerformed
+
+    private void jButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseReleased
+        if(CEstudiante.getPregunta()==CEstudiante.getExamen().getNumeroPreguntas()-1){
+            JOptionPane.showMessageDialog(null, "Esta en la ultima pregunta");
+        }
+        else{
+            CEstudiante.avanzar();
+            Pregunta pregunta = CEstudiante.getExamen().getPregunta(CEstudiante.getPregunta());
+            if(pregunta instanceof PreguntaAbierta){
+                PreguntaAbierta resuelta = new PreguntaAbierta(RespuestaPreguntaAbierta.getText(), (int) pregunta.getValor());
+                examen.agregarPregunta(resuelta);
+            }
+            else if(pregunta instanceof PreguntaOpcionMultipleUnicaRespuesta){
+                boolean[] respuesta = new boolean[4];
+                if(SeleccionaAOMUR.isSelected()){
+                    respuesta[0] = true;
+                }
+                else if(SeleccionaBOMUR.isSelected()){
+                    respuesta[1] = true;
+                }
+                else if(SeleccionaCOMUR.isSelected()){
+                    respuesta[2] = true;
+                }
+                else if(SeleccionaDOMUR.isSelected()){
+                    respuesta[3] = true;
+                }
+                PreguntaOpcionMultipleMultipleRespuesta resuelta = new PreguntaOpcionMultipleMultipleRespuesta((((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones()),respuesta,RespuestaPreguntaAbierta.getText(), (int) pregunta.getValor());
+                examen.agregarPregunta(resuelta);
+            }
+            else if(pregunta instanceof PreguntaOpcionMultipleMultipleRespuesta){
+                boolean[] respuesta = new boolean[4];
+                if(SeleccionaAOMMR.isSelected()){
+                    respuesta[0] = true;
+                }
+                if(SeleccionaBOMMR.isSelected()){
+                    respuesta[1] = true;
+                }
+                if(SeleccionaCOMMR.isSelected()){
+                    respuesta[2] = true;
+                }
+                if(SeleccionaDOMMR.isSelected()){
+                    respuesta[3] = true;
+                }
+                PreguntaOpcionMultipleUnicaRespuesta resuelta = new PreguntaOpcionMultipleUnicaRespuesta((((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones()),respuesta,RespuestaPreguntaAbierta.getText(), (int) pregunta.getValor());
+                examen.agregarPregunta(resuelta);
+            }
+            mostrarPanelBlanco();
+            jPanel20.setVisible(false);
+            if(pregunta instanceof PreguntaAbierta){
+                PanelPreguntaAbierta.setVisible(true);
+            }
+            else if(pregunta instanceof PreguntaOpcionMultipleUnicaRespuesta){
+                PanelPreguntaOpcionMultipleUR.setVisible(true);
+            }
+            else if(pregunta instanceof PreguntaOpcionMultipleMultipleRespuesta){
+                PanelPreguntaOpcionMultipleMR.setVisible(true);
+            }
+            cargarPregunta();
+        }
+    }//GEN-LAST:event_jButton7MouseReleased
+
+    private void BarraTipoPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraTipoPreguntaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BarraTipoPreguntaActionPerformed
+
+    private void jButton6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseReleased
+       InterfazProfesor.setVisible(false);
+       CrearExamen.setVisible(true);
+    }//GEN-LAST:event_jButton6MouseReleased
+
+    private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
+        PanelIngreso.setVisible(false);
+        InterfazProfesor.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseReleased
+
+    private void UROpcionAMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UROpcionAMouseReleased
+        if(!UROpcionA.isSelected()){
+            UROpcionA.setSelected(true);
+        }
+        else{
+            UROpcionB.setSelected(false);
+            UROpcionC.setSelected(false);
+            UROpcionD.setSelected(false);
+        }
+    }//GEN-LAST:event_UROpcionAMouseReleased
+
+    private void UROpcionBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UROpcionBMouseReleased
+        if(!UROpcionB.isSelected()){
+            UROpcionB.setSelected(true);
+        }
+        else{
+            UROpcionA.setSelected(false);
+            UROpcionC.setSelected(false);
+            UROpcionD.setSelected(false);
+        }
+    }//GEN-LAST:event_UROpcionBMouseReleased
+
+    private void UROpcionCMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UROpcionCMouseReleased
+        if(!UROpcionC.isSelected()){
+            UROpcionC.setSelected(true);
+        }
+        else{
+            UROpcionB.setSelected(false);
+            UROpcionA.setSelected(false);
+            UROpcionD.setSelected(false);
+        }
+    }//GEN-LAST:event_UROpcionCMouseReleased
+
+    private void UROpcionDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UROpcionDMouseReleased
+        if(!UROpcionD.isSelected()){
+            UROpcionD.setSelected(true);
+        }
+        else{
+            UROpcionB.setSelected(false);
+            UROpcionC.setSelected(false);
+            UROpcionA.setSelected(false);
+        }
+    }//GEN-LAST:event_UROpcionDMouseReleased
+
+    private void jButton13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseReleased
+        
+    }//GEN-LAST:event_jButton13MouseReleased
+
+    private void jButton12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseReleased
+        String opcion = (String) BarraTipoPregunta.getSelectedItem();
+        if(opcion.equals("abierta")){
+            mostrarPanelPreguntaBlanco();
+            PanelBlanco2.setVisible(false);
+            CreaPreguntaAbierta.setVisible(true);
+        }
+        else if(opcion.equals("Opcion multiple unica respuesta")){
+            mostrarPanelPreguntaBlanco();
+            PanelBlanco2.setVisible(false);
+            CreaPreguntaOMUR.setVisible(true);
+        }
+        else if(opcion.equals("Opcion multiple multiple respuesta")){
+            mostrarPanelPreguntaBlanco();
+            PanelBlanco2.setVisible(false);
+            CreaPreguntaOMMR.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton12MouseReleased
+
+    private void mostrarPanelBlanco(){
+        jPanel20.setVisible(true);
+        PanelPreguntaAbierta.setVisible(false);
+        PanelPreguntaOpcionMultipleMR.setVisible(false);
+        PanelPreguntaOpcionMultipleUR.setVisible(false);
+    }
+    
+    private void mostrarPanelPreguntaBlanco(){
+        PanelBlanco2.setVisible(true);
+        CreaPreguntaAbierta.setVisible(false);
+        CreaPreguntaOMUR.setVisible(false);
+        CreaPreguntaOMMR.setVisible(false);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,5 +1015,162 @@ public class InterfazSistemaEvaluacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> BarraTipoPregunta;
+    private javax.swing.JPanel CampoAPreguntaOMUR;
+    private javax.swing.JPanel CampoBPreguntaOMUR;
+    private javax.swing.JPanel CampoCPreguntaOMUR;
+    private javax.swing.JPanel CampoDPreguntaOMUR;
+    private javax.swing.JPanel CreaPreguntaAbierta;
+    private javax.swing.JPanel CreaPreguntaOMMR;
+    private javax.swing.JPanel CreaPreguntaOMUR;
+    private javax.swing.JPanel CrearExamen;
+    private javax.swing.JTextField DireccionCargar;
+    private javax.swing.JLabel EnunciadoPreguntaAbierta;
+    private javax.swing.JTextArea EnunciadoPreguntaOMMR;
+    private javax.swing.JLabel EnunciadoPreguntaOpcionMultipleMR;
+    private javax.swing.JLabel EnunciadoPreguntaOpcionMultipleUR;
+    private javax.swing.JPanel InterfazEstudiante;
+    private javax.swing.JPanel InterfazProfesor;
+    private javax.swing.JTextField MROpcionA;
+    private javax.swing.JTextField MROpcionB;
+    private javax.swing.JTextField MROpcionC;
+    private javax.swing.JTextField MROpcionD;
+    private javax.swing.JLabel NumeroDePregunta;
+    private javax.swing.JLabel OpcionAOMMR;
+    private javax.swing.JLabel OpcionAPreguntaOMUR;
+    private javax.swing.JLabel OpcionBOMMR;
+    private javax.swing.JLabel OpcionBPreguntaOMUR;
+    private javax.swing.JLabel OpcionCOMMR;
+    private javax.swing.JLabel OpcionCPreguntaOMUR;
+    private javax.swing.JLabel OpcionDOMMR;
+    private javax.swing.JLabel OpcionDPreguntaOMUR;
+    private javax.swing.JPanel PanelBlanco2;
+    private javax.swing.JPanel PanelIngreso;
+    private javax.swing.JPanel PanelPregunta;
+    private javax.swing.JPanel PanelPreguntaAbierta;
+    private javax.swing.JPanel PanelPreguntaOpcionMultipleMR;
+    private javax.swing.JPanel PanelPreguntaOpcionMultipleUR;
+    private javax.swing.JPanel ResolverPrueba;
+    private javax.swing.JTextArea RespuestaPreguntaAbierta;
+    private javax.swing.JRadioButton SeleccionaAOMMR;
+    private javax.swing.JRadioButton SeleccionaAOMUR;
+    private javax.swing.JRadioButton SeleccionaBOMMR;
+    private javax.swing.JRadioButton SeleccionaBOMUR;
+    private javax.swing.JRadioButton SeleccionaCOMMR;
+    private javax.swing.JRadioButton SeleccionaCOMUR;
+    private javax.swing.JRadioButton SeleccionaDOMMR;
+    private javax.swing.JRadioButton SeleccionaDOMUR;
+    private javax.swing.JTextArea TAEnunciadoPreguntaOMUR;
+    private javax.swing.JRadioButton UROpcionA;
+    private javax.swing.JRadioButton UROpcionB;
+    private javax.swing.JRadioButton UROpcionC;
+    private javax.swing.JRadioButton UROpcionD;
+    private javax.swing.JTextField URTextoOpcionA;
+    private javax.swing.JTextField URTextoOpcionB;
+    private javax.swing.JTextField URTextoOpcionC;
+    private javax.swing.JTextField URTextoOpcionD;
+    private javax.swing.JTextField ValorPreguntaAbierta;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
+    private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarPregunta() {
+        Pregunta pregunta = CEstudiante.getExamen().getPregunta(CEstudiante.getPregunta());
+        if( pregunta instanceof PreguntaAbierta){
+            EnunciadoPreguntaAbierta.setText(pregunta.getEnunciado());
+        }
+        else if(pregunta instanceof PreguntaOpcionMultipleUnicaRespuesta){
+            EnunciadoPreguntaOpcionMultipleUR.setText(pregunta.getEnunciado());
+            OpcionAPreguntaOMUR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(0));
+            OpcionBPreguntaOMUR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(1));
+            OpcionCPreguntaOMUR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(2));
+            OpcionDPreguntaOMUR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(3));
+        }
+        else if(pregunta instanceof PreguntaOpcionMultipleMultipleRespuesta){
+            EnunciadoPreguntaOpcionMultipleMR.setText(pregunta.getEnunciado());
+            OpcionAOMMR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(0));
+            OpcionBOMMR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(1));
+            OpcionCOMMR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(2));
+            OpcionDOMMR.setText(((PreguntaOpcionMultipleUnicaRespuesta) pregunta).getOpciones().get(3));
+        }
+    }
 }

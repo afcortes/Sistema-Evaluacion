@@ -19,6 +19,7 @@ public class Examen implements Serializable{
     private String descripcion;
     private int valor;
     private List<Pregunta> preguntas;
+    
 
     public Examen(String descripcion, int valor) {
         this.descripcion = descripcion;
@@ -40,5 +41,9 @@ public class Examen implements Serializable{
     
     public void agregarPregunta(Pregunta pPregunta){
         preguntas.add(pPregunta);
+    }
+    
+    public int getNumeroPreguntas(){
+        return preguntas.size();
     }
 }
